@@ -10,7 +10,7 @@ import {TipoComponent} from './tipo/tipo.component';
 
 const routes: Routes = [
   {path: 'editorial',
-   component: EditorialComponent
+    component: EditorialComponent
   },
   {
     path: 'autores',
