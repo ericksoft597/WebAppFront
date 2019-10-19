@@ -1,0 +1,25 @@
+
+<div class="container">
+    {{autoresForm.value|json}}
+
+    <form [formGroup]="autoresForm" >
+      <div class="form-group">
+          <label>codigo:</label>
+          <input type="text"
+           class="form-control"
+           formControlName="codigo" 
+           name="codigo">
+      </div>
+
+   
+
+    <div>
+      <button type="button" (click)="saveform(autoresForm.value)" [disabled]="!autoresForm.valid" 
+      class="btn btn-primary">Guardar</button>
+    
+    </div>
+    
+    
+    </form>
+</div>
+    

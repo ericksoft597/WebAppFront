@@ -1,4 +1,4 @@
-<form>
+<!-- <form>
   <div class="form-group">
     <label >Codigo</label>
     <input class="form-control" placeholder="Ingrese Codigo">
@@ -10,4 +10,23 @@
   </div>
 
   <button type="submit" class="btn btn-primary">Agregar</button>
+</form> -->
+
+<div class="form-group">
+<form >
+  <div class="form-group">
+      codigo: {{codigo}}
+      <input type="text" [(ngModel)]="codigo" (ngModelChange)="showlength($event, 10)" name="codigo">
+  </div>
+  <div class="form-group">
+    descripcion: {{descripcion}}
+    <input type="text" [(ngModel)]="descripcion" (ngModelChange)="showlength($event, 20)" name="descripcion" >
+</div>
+<div>
+  <button type="button" (click)="saveform()" class="btn btn-primary">Guardar</button>
+
+</div>
+
+
 </form>
+</div>

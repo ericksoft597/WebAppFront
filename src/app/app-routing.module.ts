@@ -16,7 +16,16 @@ const routes: Routes = [
     {
       path: 'biblioteca',
       loadChildren: './Pages/biblioteca/biblioteca.module#BibliotecaModule'
-    }]},
+    },
+    {
+      path: 'academico',
+      loadChildren: './Pages/academico/academico.module#AcademicoModule'
+    },
+    {
+      path: 'administracion',
+      loadChildren: './Pages/administracion/administracion.module#AdministracionModule'
+    }
+  ]},
   {path: '**',
     component: NotFoundComponent
   }

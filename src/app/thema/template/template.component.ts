@@ -29,6 +29,7 @@ export class TemplateComponent implements OnInit {
       child: false,
       childrens: ''
     },
+
       {
         description:'Biblioteca',
         link: '',
@@ -49,8 +50,49 @@ export class TemplateComponent implements OnInit {
             descripction:'Libros',
             link:'/Pages/biblioteca/libros'
           }]
+      },
+      {
+        description:'Academico',
+        link: '',
+        child: true,
+        childrens: [{
+          descripction:'Docentes',
+          link:'/Pages/academico/docentes'
+        },
+          {
+            descripction:'Estudiantes',
+            link:'/Pages/academico/estudiantes'
+          },
+          {
+            descripction:'Materias',
+            link:'/Pages/academico/materias'
+          },
+          {
+            descripction:'Grados',
+            link:'/Pages/academico/grados'
+          },
+          {
+            descripction:'Aulas',
+            link:'/Pages/academico/aulas'
+          }]
+      },
+      {
+        description:'Administracion',
+        link: '',
+        child: true,
+        childrens: [{
+          descripction:'modulos',
+          link:'/Pages/administracion/modulos'
+        },
+          {
+            descripction:'Roles',
+            link:'/Pages/administracion/roles'
+          },
+          {
+            descripction:'Usuarios',
+            link:'/Pages/administracion/usuarios'
+          }]
       }
-
     ]
   }
 }

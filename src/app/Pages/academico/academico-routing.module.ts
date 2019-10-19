@@ -10,7 +10,7 @@ import {AulasComponent} from './aulas/aulas.component';
 const routes: Routes = [
   {path: 'docentes',
     component:DocentesComponent
-  }
+  },
   {path: 'estudiantes',
     component: EstudiantesComponent
   },
