@@ -49,7 +49,12 @@ export class TemplateComponent implements OnInit {
           {
             descripction:'Libros',
             link:'/Pages/biblioteca/libros'
-          }]
+          },
+          {
+            descripction:'Existencias',
+            link:'/Pages/biblioteca/existencia'
+          }
+        ]
       },
       {
         description:'Academico',

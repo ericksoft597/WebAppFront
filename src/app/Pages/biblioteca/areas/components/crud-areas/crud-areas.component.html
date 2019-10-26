@@ -1,1 +1,24 @@
-<p>crud-areas works!</p>
+
+<div class="container">
+    {{areasForm.value|json}}
+
+    <form [formGroup]="areasForm" >
+      <div class="form-group">
+          <label>codigo:</label>
+          <input type="text"
+           class="form-control"
+           formControlName="codigo" 
+           name="codigo">
+      </div>
+
+   
+
+    <div>
+      <button type="button" (click)="saveform(areasForm.value)" [disabled]="!areasForm.valid" 
+      class="btn btn-primary">Guardar</button>
+    
+    </div>
+    
+    
+    </form>
+</div>
