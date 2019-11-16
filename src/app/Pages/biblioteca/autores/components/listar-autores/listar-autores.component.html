@@ -1,1 +1,19 @@
-<p>listar-autores works!</p>
+<table class="table">
+  <thead class="thead-dark">
+  <tr>
+    <th scope="col">Codigo</th>
+    <th scope="col">Descripcion</th>
+    <th scope="col">Opciones</th>
+  </tr>
+  </thead>
+  <tbody>
+  <tr *ngFor="let category of categories">
+    <td>{{category.id}}</td>
+    <td>{{category.description}}</td>
+    <td><button class="btn btn-info btn-sm" (click)="updateAutor(category.id)">Editar</button>
+      <button class="btn btn-danger btn-sm" (click)="deleteautor(category.id)">Eliminar</button>  </td>
+  </tr>
+
+
+  </tbody>
+</table>

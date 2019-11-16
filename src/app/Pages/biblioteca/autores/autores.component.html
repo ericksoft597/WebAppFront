@@ -4,10 +4,10 @@
       <button type="button" class="btn btn-primary">Nuevo</button>
       </div>
       <app-listar-autores></app-listar-autores>
-  
+
     </div>
     <div class="col-6">
-      <app-crud-autores></app-crud-autores>
+      <app-crud-autores (salida)="refresh($event)" ></app-crud-autores>
     </div>
-  
+
   </div>

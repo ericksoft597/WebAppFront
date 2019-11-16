@@ -6,6 +6,8 @@ import { AppComponent } from './app.component';
 import { NotFoundComponent } from './shared/not-found/not-found.component';
 import { TemplateComponent } from './thema/template/template.component';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import {HttpClientModule} from '@angular/common/http';
+import {CategoryGradeService} from './data/category-grade.service';
 
 
 @NgModule({
@@ -18,9 +20,10 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
     BrowserModule,
     AppRoutingModule,
     FormsModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    HttpClientModule
   ],
-  providers: [],
+  providers: [ CategoryGradeService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

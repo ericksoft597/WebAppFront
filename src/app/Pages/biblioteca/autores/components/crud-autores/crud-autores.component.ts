@@ -1,5 +1,8 @@
-import { Component, OnInit } from '@angular/core';
+import {Component, EventEmitter, OnInit, Input, Output, ViewChild} from '@angular/core';
 import { FormGroup, FormBuilder, Validators } from '@angular/forms';
+import {CategoryGradeService} from '@data/category-grade.service';
+import {isBoolean} from 'util';
+import {ListarAutoresComponent} from '../listar-autores/listar-autores.component';
 
 @Component({
   selector: 'app-crud-autores',
@@ -7,12 +10,14 @@ import { FormGroup, FormBuilder, Validators } from '@angular/forms';
   styleUrls: ['./crud-autores.component.css']
 })
 export class CrudAutoresComponent implements OnInit {
+  @Output() salida: EventEmitter<boolean> = new EventEmitter<boolean>();
+  @Input() id: number;
   // 1) declarar propiedad tipo formgroup
   public autoresForm: FormGroup;
 
   //2) inyectar form builder en el constructor
 
-  constructor( protected fb: FormBuilder) {
+  constructor( private service: CategoryGradeService, protected fb: FormBuilder) {
       this.createAutoresForm()
    }
 
@@ -20,15 +25,17 @@ export class CrudAutoresComponent implements OnInit {
    createAutoresForm(){
     this.autoresForm = this.fb.group(
       {
-        codigo: ['',
-          [
-            Validators.required,
-            Validators.maxLength(5)  
-          ]
-        ],
-        descripcion: '',
-        titulo: '',
-        year: ''
+        description: [''
+          //,
+          //[
+            //Validators.required,
+            //Validators.maxLength(5)
+          //]
+        ]
+        //,
+        //descripcion: '',
+        //titulo: '',
+        //year: ''
 
 
       }
@@ -40,14 +47,21 @@ export class CrudAutoresComponent implements OnInit {
   ngOnInit() {
   }
 
+
   // metodo para salvar información
   saveform(data) {
+    this.service.postcategorygrade(data).subscribe(data=>{
+      //alert('grabado con exito');
+      this.salida.emit(true);
+      this.autoresForm.reset();
 
-    alert(JSON.stringify(data))
+    });
+
   }
 
- 
+  this.update.updateAutor() {
 
+  }
 
 
 }
