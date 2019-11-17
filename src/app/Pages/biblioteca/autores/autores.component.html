@@ -3,11 +3,14 @@
       <div class="row m-2">
       <button type="button" class="btn btn-primary">Nuevo</button>
       </div>
-      <app-listar-autores></app-listar-autores>
+      <app-listar-autores  (salida1)="refresh1($event)">
+
+      </app-listar-autores>
 
     </div>
     <div class="col-6">
       <app-crud-autores (salida)="refresh($event)" ></app-crud-autores>
+
     </div>
 
   </div>

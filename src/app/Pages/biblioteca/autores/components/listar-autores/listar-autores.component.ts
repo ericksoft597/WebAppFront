@@ -10,13 +10,13 @@ declare const Swal: any;
   styleUrls: ['./listar-autores.component.css']
 })
 export class ListarAutoresComponent implements OnInit {
-  @ViewChild(CrudAutoresComponent, {static: false}) crud: CrudAutoresComponent;
-  @Output() salida: EventEmitter<number>;
+  @Output() salida1: EventEmitter<string> = new EventEmitter<string>();
   constructor(protected service: CategoryGradeService) { }
 
   categories: any;
   ngOnInit() {
     this.getautores();
+
   }
   getautores(){
     this.service.getcategorygrades().subscribe(resp => {
@@ -61,8 +61,11 @@ export class ListarAutoresComponent implements OnInit {
     );
   }
 
-  updateAutor(id ) {
-    this.salida.emit(id);
+
+  updateAutor(id1) {
+     this.salida1.emit(id1);
+
   }
+
 
 }

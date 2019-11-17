@@ -11,32 +11,30 @@ import {ListarAutoresComponent} from '../listar-autores/listar-autores.component
 })
 export class CrudAutoresComponent implements OnInit {
   @Output() salida: EventEmitter<boolean> = new EventEmitter<boolean>();
-  @Input() id: number;
+
+
   // 1) declarar propiedad tipo formgroup
   public autoresForm: FormGroup;
 
   //2) inyectar form builder en el constructor
 
   constructor( private service: CategoryGradeService, protected fb: FormBuilder) {
-      this.createAutoresForm()
+      this.createAutoresForm('', false,'');
    }
 
    //3) Crear  metodo para construir formulario
-   createAutoresForm(){
+   createAutoresForm(desc,estado,id){
     this.autoresForm = this.fb.group(
       {
-        description: [''
+        description: [desc
           //,
           //[
             //Validators.required,
             //Validators.maxLength(5)
           //]
-        ]
-        //,
-        //descripcion: '',
-        //titulo: '',
-        //year: ''
-
+        ],
+        estado: [estado],
+        id: [id]
 
       }
 
@@ -44,24 +42,46 @@ export class CrudAutoresComponent implements OnInit {
 
    }
 
+  autores: any;
+
   ngOnInit() {
   }
 
 
   // metodo para salvar información
   saveform(data) {
-    this.service.postcategorygrade(data).subscribe(data=>{
-      //alert('grabado con exito');
-      this.salida.emit(true);
-      this.autoresForm.reset();
 
+    if (data.estado === true) {
+
+      this.service.putcategorygrade(data.id,data).subscribe(data => {
+        //alert('grabado con exito');
+        this.salida.emit(true);
+        this.autoresForm.reset();
+
+      });
+
+    } else {
+      this.service.postcategorygrade(data).subscribe(data => {
+        //alert('grabado con exito');
+        this.salida.emit(true);
+        this.autoresForm.reset();
+
+      });
+
+    }
+  }
+
+  buscarAutoresForm(estado,id){
+
+    this.service.getcategorygrade(id).subscribe(resp => {
+      this.autores = resp;
+      this.createAutoresForm(this.autores.description, true, id);
     });
 
-  }
 
-  this.update.updateAutor() {
 
   }
+
 
 
 }
